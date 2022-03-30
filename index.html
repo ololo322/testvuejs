@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Test </title>
+<script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+<script src="./main.js"></script>
+</head>
+<body>
+
+<div id="app">
+	<div class="cart">
+		Cart({{ cart }})
+	</div>
+	<div>
+		<a :href="url"><img v-bind:src="image"/></a><!--v-bind:src == :src-->
+	</div>
+	<h1>{{ product }}</h1>
+	<p>Red picture</p>
+	<p>Blue picture</p>
+	<p v-if="onSale">On Sale</p>
+	<ul>
+		<li v-for="detail in details">{{ detail }}</li>
+	</ul>
+	<div v-for="variant in variants" :key="variant.color" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+	<button class="button" v-on:click="addToCart">Add to cart</button>
+</div>
+
+
+<script>
+	const mountedApp = app.mount('#app')
+</script>
+
+</body>
+</html>
